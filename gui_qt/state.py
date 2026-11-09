@@ -55,6 +55,10 @@ class StudioState(QObject):
         self.settings.ai_backgrounds = prefs.get("ai_backgrounds", self.settings.ai_backgrounds)
         self.script = ""
         self.episode: Episode | None = None
+        # The episode that "Make" updates: only set while the editor holds that episode's own script.
+        # A new script (AI writer, sample, opened file) always makes a new episode, so it can never
+        # overwrite another cartoon's frames.
+        self.target_episode: Episode | None = None
         self.worker: GenerationWorker | None = None
         self.busy_with: str | None = None
         self.last_result = None
@@ -69,8 +73,11 @@ class StudioState(QObject):
         self.settings_changed.emit()
 
     # --------------------------------------------------------------- script
-    def set_script(self, text: str, emit: bool = True) -> None:
+    def set_script(self, text: str, emit: bool = True, keep_target: bool = False) -> None:
+        """``emit=False`` is the editor reporting typing; that keeps the episode being edited."""
         self.script = text
+        if emit and not keep_target:
+            self.target_episode = None
         if emit:
             self.script_changed.emit(text)
 
@@ -110,7 +117,10 @@ class StudioState(QObject):
         self.episode = load_episode(root) if root else None
         if self.episode and self.episode.script:
             self.settings.episode_name = self.episode.name
-            self.set_script(self.episode.script)
+            self.set_script(self.episode.script, keep_target=True)
+            self.target_episode = self.episode
+        else:
+            self.target_episode = None
         self.episode_changed.emit(self.episode)
 
     def refresh_episode(self) -> None:
@@ -132,7 +142,7 @@ class StudioState(QObject):
         if not parsed.report.ok:
             return "The script has a problem: " + " ".join(parsed.report.errors)
         if script is not None:
-            self.set_script(text)
+            self.set_script(text, keep_target=True)
         self.settings.episode_name = episode_name
         self.worker = self._worker_factory(self.settings, text)
         self.worker.progress.connect(self.job_progress)
@@ -154,5 +164,6 @@ class StudioState(QObject):
         self.worker = None
         if res.episode_dir:
             self.episode = load_episode(res.episode_dir)
+            self.target_episode = self.episode  # the editor holds this episode's script now
             self.episode_changed.emit(self.episode)
         self.job_finished.emit(res)

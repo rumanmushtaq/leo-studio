@@ -127,6 +127,29 @@ class ProjectManager:
         return path
 
     @staticmethod
+    def lock(root: Path) -> bool:
+        """Claim an episode folder for one generation. False if another live process holds it
+        (two runs in one folder would delete each other's frames)."""
+        import os
+
+        import psutil
+
+        root.mkdir(parents=True, exist_ok=True)
+        lock = root / ".generation.lock"
+        try:
+            pid = int(lock.read_text().strip())
+            if pid != os.getpid() and psutil.pid_exists(pid):
+                return False
+        except (OSError, ValueError):
+            pass  # no lock, or a stale/corrupt one left by a crash or power loss
+        lock.write_text(str(os.getpid()))
+        return True
+
+    @staticmethod
+    def unlock(root: Path) -> None:
+        (root / ".generation.lock").unlink(missing_ok=True)
+
+    @staticmethod
     def cleanup_temp(ep: EpisodePaths) -> None:
         shutil.rmtree(ep.temp, ignore_errors=True)
         ep.temp.mkdir(parents=True, exist_ok=True)

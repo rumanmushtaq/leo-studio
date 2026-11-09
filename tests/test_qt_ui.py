@@ -261,3 +261,39 @@ def test_upload_with_fake_service(tmp_path):
     assert calls["thumb"] == "abc123"
     assert calls["body"]["status"]["privacyStatus"] == "private"
     assert steps[-1] == 1.0
+
+
+# ----------------------------------------------------- episode safety
+def test_new_script_never_targets_open_episode(window, qapp, tmp_path, leo_script):
+    root = make_episode(tmp_path / "output", name="old_ep", script=leo_script)
+    window.state.open_episode(root)
+    assert window.state.target_episode.name == "old_ep"
+    window.pages["script"].editor.setPlainText(leo_script + "\n")  # typing keeps the episode
+    assert window.state.target_episode.name == "old_ep"
+    window.state.set_script(leo_script.replace("Leo", "Zara"))  # AI writer / sample / file
+    assert window.state.target_episode is None
+    FakeWorker.result_dir = None
+    window.pages["script"]._make()
+    assert window.state.settings.episode_name is None
+
+
+def test_episode_lock_blocks_second_generation(tmp_path):
+    import os
+    import subprocess
+    import sys
+
+    from core.project_manager import ProjectManager
+
+    root = tmp_path / "ep"
+    holder = subprocess.Popen([sys.executable, "-c", "import time; time.sleep(30)"])
+    try:
+        root.mkdir()
+        (root / ".generation.lock").write_text(str(holder.pid))
+        assert not ProjectManager.lock(root)  # a live process owns it
+    finally:
+        holder.kill()
+        holder.wait()
+    assert ProjectManager.lock(root)  # stale lock (dead process) is taken over
+    assert (root / ".generation.lock").read_text() == str(os.getpid())
+    ProjectManager.unlock(root)
+    assert not (root / ".generation.lock").exists()

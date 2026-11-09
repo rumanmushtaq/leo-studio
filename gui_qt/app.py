@@ -266,7 +266,7 @@ class StudioWindow(QMainWindow):
             self.write_script(text, language, then_generate=True)
 
     def _start(self, script: str) -> None:
-        ep = self.state.episode
+        ep = self.state.target_episode
         err = self.state.generate(script, ep.name if ep else None)
         if err:
             self.error("Cannot start", err)

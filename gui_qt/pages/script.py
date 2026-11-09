@@ -195,13 +195,13 @@ class ScriptPage(QWidget):
         self.status.setStyleSheet(f"color: {theme.OK if not warn else theme.WARN};")
 
     def _update_target(self) -> None:
-        ep = self.state.episode
+        ep = self.state.target_episode
         self.target.setText(f"Updates “{ep.name}” — unchanged scenes are reused, only changed scenes render again."
-                            if ep else "Makes a new episode.")
+                            if ep else "Makes a new episode (your other cartoons are not touched).")
 
     # ------------------------------------------------------------- actions
     def _make(self) -> None:
-        ep = self.state.episode
+        ep = self.state.target_episode
         err = self.state.generate(self.editor.toPlainText(), ep.name if ep else None)
         if err:
             self.studio.error("Cannot start", err)
