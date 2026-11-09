@@ -1,0 +1,13 @@
+{
+  "_about": "Keyframe restyle: Blender layout render -> Pixar-style image (Flux.1-schnell img2img). ComfyUI core nodes only.",
+  "1": {"class_type": "CheckpointLoaderSimple", "inputs": {"ckpt_name": "flux1-schnell-fp8.safetensors"}},
+  "2": {"class_type": "LoadImage", "inputs": {"image": "{{IMAGE}}"}},
+  "3": {"class_type": "ImageScale", "inputs": {"image": ["2", 0], "upscale_method": "lanczos", "width": "{{WIDTH}}", "height": "{{HEIGHT}}", "crop": "center"}},
+  "4": {"class_type": "VAEEncode", "inputs": {"pixels": ["3", 0], "vae": ["1", 2]}},
+  "5": {"class_type": "CLIPTextEncode", "inputs": {"text": "{{PROMPT}}", "clip": ["1", 1]}},
+  "6": {"class_type": "CLIPTextEncode", "inputs": {"text": "", "clip": ["1", 1]}},
+  "7": {"class_type": "KSampler", "inputs": {"model": ["1", 0], "positive": ["5", 0], "negative": ["6", 0], "latent_image": ["4", 0],
+        "seed": "{{SEED}}", "steps": 4, "cfg": 1.0, "sampler_name": "euler", "scheduler": "simple", "denoise": "{{DENOISE}}"}},
+  "8": {"class_type": "VAEDecode", "inputs": {"samples": ["7", 0], "vae": ["1", 2]}},
+  "9": {"class_type": "SaveImage", "inputs": {"images": ["8", 0], "filename_prefix": "leo/keyframe"}}
+}

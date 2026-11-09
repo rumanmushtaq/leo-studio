@@ -1,0 +1,637 @@
+{
+  "_comment": "Hand-authored character designs. Any character not listed here gets a deterministic procedural design from character_manager.",
+  "characters": {
+    "leo": {
+      "name": "Leo",
+      "aliases": [
+        "leo",
+        "لیو",
+        "لیؤ",
+        "لِیو",
+        "superhero",
+        "hero"
+      ],
+      "role": "hero",
+      "age_group": "child",
+      "gender": "male",
+      "height": 1.38,
+      "build": {
+        "width": 1.0,
+        "belly": 0.0
+      },
+      "skin": [
+        0.93,
+        0.72,
+        0.56
+      ],
+      "eye_color": [
+        0.12,
+        0.45,
+        0.95
+      ],
+      "eye_size": 1.25,
+      "hair": {
+        "style": "short_tuft",
+        "color": [
+          0.36,
+          0.2,
+          0.09
+        ]
+      },
+      "face": {
+        "nose": "button",
+        "moustache": false,
+        "ears": true
+      },
+      "costume": {
+        "shirt": [
+          0.1,
+          0.3,
+          0.85
+        ],
+        "sleeves": [
+          0.85,
+          0.1,
+          0.12
+        ],
+        "sleeve_length": "long",
+        "pants": [
+          0.1,
+          0.3,
+          0.85
+        ],
+        "shoes": [
+          0.85,
+          0.1,
+          0.12
+        ],
+        "shoe_style": "boots",
+        "gloves": null,
+        "belt": [
+          0.95,
+          0.75,
+          0.15
+        ]
+      },
+      "accessories": [
+        "cape",
+        "emblem_L",
+        "agent_badge",
+        "belt"
+      ],
+      "cape_color": [
+        0.1,
+        0.3,
+        0.85
+      ],
+      "personality": "Brave, clever, kind, energetic and humorous.",
+      "voice": {
+        "pitch": 1.28,
+        "rate": 1.08,
+        "style": "energetic, confident, friendly"
+      },
+      "default_emotion": "confident",
+      "appearance": "Young superhero boy (10-12), short brown hair, large blue eyes, blue suit with red sleeves, golden L emblem, red boots, blue flowing cape, federal special agent badge on belt."
+    },
+    "karim": {
+      "name": "Karim",
+      "aliases": [
+        "karim",
+        "کریم"
+      ],
+      "role": "victim",
+      "age_group": "adult",
+      "gender": "male",
+      "height": 1.72,
+      "build": {
+        "width": 1.08,
+        "belly": 0.05
+      },
+      "skin": [
+        0.78,
+        0.55,
+        0.4
+      ],
+      "eye_color": [
+        0.25,
+        0.16,
+        0.08
+      ],
+      "eye_size": 1.0,
+      "hair": {
+        "style": "short",
+        "color": [
+          0.08,
+          0.06,
+          0.05
+        ]
+      },
+      "face": {
+        "nose": "round",
+        "moustache": true,
+        "ears": true
+      },
+      "costume": {
+        "shirt": [
+          0.2,
+          0.4,
+          0.8
+        ],
+        "sleeves": [
+          0.2,
+          0.4,
+          0.8
+        ],
+        "sleeve_length": "short",
+        "pants": [
+          0.45,
+          0.3,
+          0.17
+        ],
+        "shoes": [
+          0.25,
+          0.17,
+          0.1
+        ],
+        "shoe_style": "boots",
+        "gloves": null,
+        "belt": null
+      },
+      "accessories": [
+        "safety_helmet",
+        "reflective_vest"
+      ],
+      "helmet_color": [
+        0.98,
+        0.82,
+        0.1
+      ],
+      "vest_color": [
+        1.0,
+        0.45,
+        0.05
+      ],
+      "personality": "Hard-working, friendly, honest construction worker.",
+      "voice": {
+        "pitch": 0.92,
+        "rate": 0.98,
+        "style": "friendly adult male"
+      },
+      "default_emotion": "neutral",
+      "appearance": "Adult construction worker with yellow safety helmet, orange reflective vest, blue shirt, brown trousers."
+    },
+    "bilal": {
+      "name": "Bilal",
+      "aliases": [
+        "bilal",
+        "بلال"
+      ],
+      "role": "victim",
+      "age_group": "teen",
+      "gender": "male",
+      "height": 1.66,
+      "build": {
+        "width": 0.95,
+        "belly": 0.0
+      },
+      "skin": [
+        0.85,
+        0.63,
+        0.47
+      ],
+      "eye_color": [
+        0.2,
+        0.13,
+        0.07
+      ],
+      "eye_size": 1.1,
+      "hair": {
+        "style": "spiky",
+        "color": [
+          0.1,
+          0.07,
+          0.05
+        ]
+      },
+      "face": {
+        "nose": "button",
+        "moustache": false,
+        "ears": true
+      },
+      "costume": {
+        "shirt": [
+          0.08,
+          0.08,
+          0.1
+        ],
+        "sleeves": [
+          0.08,
+          0.08,
+          0.1
+        ],
+        "sleeve_length": "long",
+        "pants": [
+          0.2,
+          0.35,
+          0.65
+        ],
+        "shoes": [
+          0.9,
+          0.9,
+          0.92
+        ],
+        "shoe_style": "sneakers",
+        "gloves": [
+          0.1,
+          0.1,
+          0.1
+        ],
+        "belt": null
+      },
+      "accessories": [
+        "biker_helmet",
+        "jacket"
+      ],
+      "helmet_color": [
+        0.05,
+        0.05,
+        0.06
+      ],
+      "jacket_color": [
+        0.06,
+        0.06,
+        0.08
+      ],
+      "personality": "Cheerful young biker who loves his motorcycle.",
+      "voice": {
+        "pitch": 1.06,
+        "rate": 1.05,
+        "style": "young adult male"
+      },
+      "default_emotion": "happy",
+      "appearance": "Young biker with black helmet, black jacket and blue jeans."
+    },
+    "ustad_akram": {
+      "name": "Ustad Akram",
+      "aliases": [
+        "ustad akram",
+        "akram",
+        "ustad",
+        "استاد اکرم",
+        "اکرم",
+        "استاد"
+      ],
+      "role": "victim",
+      "age_group": "adult",
+      "gender": "male",
+      "height": 1.68,
+      "build": {
+        "width": 1.12,
+        "belly": 0.12
+      },
+      "skin": [
+        0.74,
+        0.52,
+        0.37
+      ],
+      "eye_color": [
+        0.22,
+        0.14,
+        0.08
+      ],
+      "eye_size": 1.0,
+      "hair": {
+        "style": "short",
+        "color": [
+          0.3,
+          0.3,
+          0.32
+        ]
+      },
+      "face": {
+        "nose": "round",
+        "moustache": true,
+        "ears": true
+      },
+      "costume": {
+        "shirt": [
+          0.15,
+          0.5,
+          0.25
+        ],
+        "sleeves": [
+          0.15,
+          0.5,
+          0.25
+        ],
+        "sleeve_length": "long",
+        "pants": [
+          0.15,
+          0.5,
+          0.25
+        ],
+        "shoes": [
+          0.15,
+          0.12,
+          0.1
+        ],
+        "shoe_style": "boots",
+        "gloves": null,
+        "belt": [
+          0.1,
+          0.1,
+          0.1
+        ]
+      },
+      "accessories": [
+        "wrench",
+        "belt"
+      ],
+      "personality": "Warm, humorous, experienced car mechanic.",
+      "voice": {
+        "pitch": 0.86,
+        "rate": 0.94,
+        "style": "warm humorous adult"
+      },
+      "default_emotion": "happy",
+      "appearance": "Friendly mechanic in a green uniform, small moustache, holding a wrench."
+    },
+    "boss": {
+      "name": "Boss",
+      "aliases": [
+        "boss",
+        "باس",
+        "bully",
+        "bully boss",
+        "غنڈہ",
+        "بدمعاش"
+      ],
+      "role": "villain",
+      "group": "bullies",
+      "age_group": "teen",
+      "gender": "male",
+      "height": 1.74,
+      "build": {
+        "width": 1.05,
+        "belly": 0.0
+      },
+      "skin": [
+        0.82,
+        0.6,
+        0.45
+      ],
+      "eye_color": [
+        0.15,
+        0.1,
+        0.06
+      ],
+      "eye_size": 0.95,
+      "hair": {
+        "style": "spiky",
+        "color": [
+          0.05,
+          0.04,
+          0.04
+        ]
+      },
+      "face": {
+        "nose": "pointy",
+        "moustache": false,
+        "ears": true
+      },
+      "costume": {
+        "shirt": [
+          0.95,
+          0.95,
+          0.95
+        ],
+        "sleeves": [
+          0.45,
+          0.15,
+          0.6
+        ],
+        "sleeve_length": "long",
+        "pants": [
+          0.15,
+          0.15,
+          0.2
+        ],
+        "shoes": [
+          0.1,
+          0.1,
+          0.1
+        ],
+        "shoe_style": "sneakers",
+        "gloves": null,
+        "belt": null
+      },
+      "accessories": [
+        "jacket"
+      ],
+      "jacket_color": [
+        0.45,
+        0.15,
+        0.6
+      ],
+      "personality": "Bossy, loud, but secretly cowardly leader of the bullies.",
+      "voice": {
+        "pitch": 0.8,
+        "rate": 0.95,
+        "style": "exaggerated comic deep"
+      },
+      "default_emotion": "angry",
+      "appearance": "Lead bully in a purple jacket with spiky hair."
+    },
+    "chintu": {
+      "name": "Chintu",
+      "aliases": [
+        "chintu",
+        "چنٹو",
+        "چِنٹو"
+      ],
+      "role": "villain",
+      "group": "bullies",
+      "age_group": "teen",
+      "gender": "male",
+      "height": 1.58,
+      "build": {
+        "width": 0.85,
+        "belly": 0.0
+      },
+      "skin": [
+        0.88,
+        0.66,
+        0.5
+      ],
+      "eye_color": [
+        0.18,
+        0.12,
+        0.07
+      ],
+      "eye_size": 1.15,
+      "hair": {
+        "style": "curly",
+        "color": [
+          0.12,
+          0.08,
+          0.05
+        ]
+      },
+      "face": {
+        "nose": "pointy",
+        "moustache": false,
+        "ears": true
+      },
+      "costume": {
+        "shirt": [
+          0.98,
+          0.85,
+          0.15
+        ],
+        "sleeves": [
+          0.98,
+          0.85,
+          0.15
+        ],
+        "sleeve_length": "short",
+        "pants": [
+          0.35,
+          0.3,
+          0.25
+        ],
+        "shoes": [
+          0.6,
+          0.15,
+          0.1
+        ],
+        "shoe_style": "sandals",
+        "gloves": null,
+        "belt": null
+      },
+      "accessories": [
+        "waistcoat"
+      ],
+      "personality": "Skinny, giggly sidekick who copies the boss.",
+      "voice": {
+        "pitch": 1.38,
+        "rate": 1.14,
+        "style": "squeaky comic"
+      },
+      "default_emotion": "laughing",
+      "appearance": "Skinny bully in a yellow shirt with curly hair.",
+      "waistcoat_color": [
+        0.75,
+        0.12,
+        0.1
+      ]
+    },
+    "motu": {
+      "name": "Motu",
+      "aliases": [
+        "motu",
+        "موٹو",
+        "مٹو"
+      ],
+      "role": "villain",
+      "group": "bullies",
+      "age_group": "teen",
+      "gender": "male",
+      "height": 1.5,
+      "build": {
+        "width": 1.45,
+        "belly": 0.45
+      },
+      "skin": [
+        0.8,
+        0.58,
+        0.42
+      ],
+      "eye_color": [
+        0.16,
+        0.1,
+        0.06
+      ],
+      "eye_size": 0.9,
+      "hair": {
+        "style": "bowl",
+        "color": [
+          0.1,
+          0.07,
+          0.05
+        ]
+      },
+      "face": {
+        "nose": "round",
+        "moustache": false,
+        "ears": true
+      },
+      "costume": {
+        "shirt": [
+          0.2,
+          0.65,
+          0.25
+        ],
+        "sleeves": [
+          0.2,
+          0.65,
+          0.25
+        ],
+        "sleeve_length": "short",
+        "pants": [
+          0.3,
+          0.25,
+          0.4
+        ],
+        "shoes": [
+          0.2,
+          0.2,
+          0.2
+        ],
+        "shoe_style": "sandals",
+        "gloves": null,
+        "belt": null
+      },
+      "accessories": [],
+      "personality": "Short, round, always hungry bully with a slow wit.",
+      "voice": {
+        "pitch": 0.74,
+        "rate": 0.9,
+        "style": "deep comic"
+      },
+      "default_emotion": "neutral",
+      "appearance": "Short, round bully in a green shirt.",
+      "arm_spread": 34
+    },
+    "narrator": {
+      "name": "Narrator",
+      "aliases": [
+        "narrator",
+        "راوی"
+      ],
+      "role": "narrator",
+      "voice_only": true,
+      "gender": "male",
+      "voice": {
+        "pitch": 1.0,
+        "rate": 0.93,
+        "style": "expressive storyteller"
+      }
+    }
+  },
+  "groups": {
+    "bullies": [
+      "bullies",
+      "bully gang",
+      "the bullies",
+      "غنڈے",
+      "بدمعاش",
+      "بدمعاشوں",
+      "غنڈوں"
+    ],
+    "workers": [
+      "workers",
+      "مزدور",
+      "مزدوروں"
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+# Leo 3D AI Cartoon Studio — Python 3.11+ (tested with 3.11.16)
+# Install CPU-only PyTorch from the PyTorch index:
+#   pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cpu
+PySide6==6.8.1            # studio window (Qt 6, LGPL-3.0)
+customtkinter==5.2.2      # classic window (python main.py --classic)
+darkdetect==0.8.0
+pillow==11.3.0
+numpy==1.26.4
+opencv-python-headless==4.10.0.84
+pydub==0.25.1
+soundfile==0.12.1
+psutil==6.1.1
+espeakng-loader==0.2.4
+imageio-ffmpeg==0.6.0     # bundled FFmpeg for Windows/macOS/Linux when no system FFmpeg is installed
+arabic-reshaper==3.0.0    # Urdu shaping fallback when Pillow has no libraqm (typical on Windows)
+python-bidi==0.6.6
+# Optional local AI (Meta MMS-TTS voices). Remove these two lines to stay on eSpeak NG only.
+torch==2.5.1
+transformers==4.46.3
+# Optional free CPU AI: painted backgrounds (OpenVINO, Intel CPUs/iGPUs work best; also runs on AMD CPUs)
+openvino==2024.6.0
+openvino-tokenizers==2024.6.0.0
+optimum==1.23.3
+optimum-intel==1.21.0
+diffusers==0.31.0
+# Optional: upload to your YouTube channel from the Publish page
+google-api-python-client==2.154.0
+google-auth-oauthlib==1.2.1
+# Tests
+pytest==8.3.4

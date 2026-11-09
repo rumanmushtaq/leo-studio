@@ -1,0 +1,10 @@
+{
+  "_about": "Lip-sync a clip to a dialogue line with LatentSync 1.6 (code Apache-2.0, weights CreativeML OpenRAIL++-M) via the ComfyUI-LatentSyncWrapper custom node. If your node version uses other input names, edit here; the studio checks node availability first and reports clearly if lip-sync cannot run.",
+  "1": {"class_type": "LoadVideo", "inputs": {"file": "{{VIDEO}}"}},
+  "2": {"class_type": "GetVideoComponents", "inputs": {"video": ["1", 0]}},
+  "3": {"class_type": "LoadAudio", "inputs": {"audio": "{{AUDIO}}"}},
+  "4": {"class_type": "LatentSyncNode", "inputs": {"images": ["2", 0], "audio": ["3", 0], "seed": "{{SEED}}",
+        "lips_expression": 1.5, "inference_steps": 20}},
+  "5": {"class_type": "CreateVideo", "inputs": {"images": ["4", 0], "audio": ["4", 1], "fps": "{{FPS}}"}},
+  "6": {"class_type": "SaveVideo", "inputs": {"video": ["5", 0], "filename_prefix": "leo/lipsync", "format": "mp4", "codec": "h264"}}
+}
