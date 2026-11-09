@@ -9,6 +9,91 @@ Blender (background mode) does the 3D modelling, rigging, animation and renderin
 script analysis, directing, speech, lip-sync data, sound, subtitles and FFmpeg assembly. No paid
 APIs, no API keys, no cloud rendering.
 
+![Studio home](docs/screenshots/home.png)
+
+## Quick start
+
+### What you need
+
+| | Minimum | Recommended |
+|---|---|---|
+| System | Windows 10/11 (64-bit) or Linux (Ubuntu 22.04/24.04) | |
+| CPU | 4 cores | 4+ cores / 8 threads |
+| RAM | 8 GB | 16 GB (needed for the optional AI background painter) |
+| Graphics | any GPU/iGPU with OpenGL 4.3 (Intel UHD, AMD, NVIDIA) | NVIDIA only matters for the optional AI video mode |
+| Disk | 8 GB free (Blender, Python packages, voices) | 15 GB with the optional AI tools |
+| Internet | only for the first install and one-time model downloads | |
+
+### 1. Get the code
+
+```bash
+git clone git@github.com:rumanmushtaq/leo-studio.git
+cd leo-studio
+```
+
+(Or on GitHub: **Code → Download ZIP**, then unzip it.)
+
+### 2. Install
+
+**Windows 10/11**
+
+1. Install **Python 3.11 or 3.12** from [python.org](https://www.python.org/downloads/windows/).
+   In the installer tick **“Add python.exe to PATH”**.
+2. Open the project folder, click the address bar, type `powershell`, press Enter, and run:
+
+   ```powershell
+   powershell -ExecutionPolicy Bypass -File install_windows.ps1
+   ```
+
+   It creates a private Python environment, installs the packages, downloads Blender 4.5 LTS
+   (checked by SHA-256) and adds **Leo 3D AI Cartoon Studio** to the Start Menu. Takes 10–20 minutes.
+
+**Linux (Ubuntu/Debian)**
+
+```bash
+sudo apt install git libxcb-cursor0          # libxcb-cursor0: needed by the studio window on X11
+bash install_linux.sh
+```
+
+The installer creates `.venv`, installs the packages, downloads Blender 4.5 LTS (checked by SHA-256)
+and adds **Leo 3D AI Cartoon Studio** to your apps menu. Optional extras for the best Urdu subtitles
+and video checks: `sudo apt install ffmpeg libraqm0`.
+
+### 3. Start the studio
+
+| Windows | Linux |
+|---|---|
+| Start Menu → **Leo 3D AI Cartoon Studio**, or double-click `run_windows.bat` | Apps menu → **Leo 3D AI Cartoon Studio**, or `./run_linux.sh` |
+
+### 4. Make your first cartoon
+
+1. On **Home**, type a story idea in one line, for example *Leo saves a lost goat in the village*
+   (or paste a full script; `assets/scripts/leo_episode_001.txt` is a complete example).
+2. Choose **Urdu** or **English** and **Quick** (first try, about 30–40 minutes) or **Best quality**
+   (1280×720, a few hours on a laptop).
+3. Press **Make my cartoon**. The first time, the app offers to download the free AI story writer
+   (2.5 GB) and background painter (2.3 GB) — both run on your computer, no internet afterwards.
+4. Read the story the AI wrote, press **Looks good — make the cartoon**, and leave the computer
+   **plugged in**. The **Render** page shows progress and a live preview; a notification appears when
+   the video is ready.
+5. Watch it on **Storyboard**, re-render a single scene if you change something, and upload it from
+   **Publish** (private by default).
+
+Finished videos are saved in `output/<episode name>/final_cartoon.mp4` (folder can be changed in
+**Settings**).
+
+### Troubleshooting
+
+| Problem | Fix |
+|---|---|
+| “Blender 4.x was not found” | Run the installer again, or install Blender 4.5 LTS from blender.org and set the environment variable `LEO_BLENDER` to `blender.exe` / `blender`. |
+| Linux: the old, plain window opens instead of the studio | `sudo apt install libxcb-cursor0`, then start again. |
+| Rendering is very slow | Plug in the charger and turn off battery saver; close other programs; use **Quick**. |
+| The computer froze or a job stopped with “out of memory” | Close browsers/Docker while rendering. The AI background painter needs about 4 GB of free RAM and is skipped automatically when there is less. |
+| A render was interrupted (power, logout) | Open the cartoon on **Home** and press **Continue** — finished frames are reused. |
+| Voices sound robotic | The natural MMS voice downloads on first use (about 145 MB); without internet the app uses eSpeak. MMS voices are non-commercial (CC-BY-NC-4.0); for a monetised channel use eSpeak or your own recordings (**Settings → Voices**). |
+| Check what the app sees on this PC | `python main.py --check` (Windows: `.venv\Scripts\python main.py --check`). |
+
 ---
 
 ## 1. What it does
@@ -42,7 +127,7 @@ blender.org with SHA-256 verification if Blender is not already installed, and f
 
 ### Windows
 
-1. Install Python 3.11 or 3.12 from python.org (tick *Add python.exe to PATH*; keep *tcl/tk*).
+1. Install Python 3.11 or 3.12 from python.org (tick *Add python.exe to PATH*).
 2. In the project folder, run in PowerShell:
 
 ```powershell
@@ -68,12 +153,11 @@ bash install_linux.sh
 Optional system packages for the best result (Nastaliq subtitles via libraqm, system FFmpeg with ffprobe):
 
 ```bash
-sudo apt install python3-tk ffmpeg libraqm0 fonts-noto-core
+sudo apt install ffmpeg libraqm0 libxcb-cursor0
 ```
 
-With the system `python3-tk` the window uses anti-aliased fonts. A uv-managed Python (used by the
-installer when the system Python lacks Tk) works too, but its Tk has no Xft: the window uses bitmap fonts
-and the edit box cannot shape Urdu. The **Urdu preview** tab and the video subtitles are unaffected.
+The studio window is Qt (PySide6) and shapes Urdu itself. `python main.py --classic` opens the older
+Tk window; with a uv-managed Python its Tk has no Xft, so that window uses bitmap fonts.
 
 ### Manual setup (any OS)
 
